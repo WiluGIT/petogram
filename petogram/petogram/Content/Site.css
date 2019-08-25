@@ -99,5 +99,67 @@ textarea {
     background-color: #fff;
     border-bottom: 1px solid rgba(0,0,0,.0975);
 }
+.profile-header{
+    margin-top:30px;
+}
+.profile-picture-cont {
+    height: 150px;
+    width: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.profile-picture-box {
+    background-color: #fafafa;
+    border-radius: 50%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+.profile-pic-button {
+    height: 100%;
+    width: 100%;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+}
+.be6sR {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+.header-section {
+    margin-bottom: 44px;
+    margin-top: 44px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: .25rem;
+    box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    height:180px;
+}
+.header-box{
+    margin-bottom:20px;
+}
+.fKFbl {
+    font-size: 28px;
+    line-height: 42px;
+    margin: -5px 0 -6px;
+    margin-right:15px;
 
+}
+.profile-li {
+    margin-top: 45px;
+    margin-bottom: 15px;
+}
+.profile-li ul {
+    padding: 0;
+    list-style-type: none;
+}
+.profile-li ul li{
+    float:left;
+
+}
 /*Bootstrap overrides*/

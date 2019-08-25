@@ -5,33 +5,42 @@
 
 <div class="container">
     <header class="profile-header">
-        <div class="profile-picture">
-            <img src="~/img/tmpIcon.jpg"/>
+        <div class="profile-picture-cont">
+            <div class="profile-picture-box">
+                <button class="profile-pic-button">
+                    <img class="be6sR" src="~/img/xd.jpg" style="max-height:100%; max-width:100%" />
+                </button>
+            </div>
+            
         </div>
         <section class="header-section">
-            <div class="header-name">
-                @Model.Name
+            <div class="header-box">
+                <h1 class="fKFbl" style="float:left;">@Model.Name</h1>
+                <a href="#">
+                    <button  class="btn btn-info">Edit</button>
+                </a>
             </div>
-            <div class="header-edit">
+            <div class="bio">
+                siema ja gej
+            </div>
+            <div class="profile-li">
+                <ul>
+                    <li>
+                        Posts:
+                    </li>
+                    <li>
+                        Followers:
+                    </li>
+                    <li>
+                        Followees:
+                    </li>
+                </ul>
+            </div>
 
-            </div>
         </section>
     </header>
 
-    <div class="bio">
 
-    </div>
-    <ul>
-        <li>
-            ilosc postow
-        </li>
-        <li>
-            ilosc obs
-        </li>
-        <li>
-            ilosc obs
-        </li>
-    </ul>
 
     <div class="row">
         @foreach (var p in Model.Posts)
