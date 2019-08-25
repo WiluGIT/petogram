@@ -1,0 +1,48 @@
+﻿@model petogram.Models.ApplicationUser
+@{
+    ViewBag.Title = "Profile";
+}
+
+<div class="container">
+    <header class="profile-header">
+        <div class="profile-picture">
+            <img src="~/img/tmpIcon.jpg"/>
+        </div>
+        <section class="header-section">
+            <div class="header-name">
+                @Model.Name
+            </div>
+            <div class="header-edit">
+
+            </div>
+        </section>
+    </header>
+
+    <div class="bio">
+
+    </div>
+    <ul>
+        <li>
+            ilosc postow
+        </li>
+        <li>
+            ilosc obs
+        </li>
+        <li>
+            ilosc obs
+        </li>
+    </ul>
+
+    <div class="row">
+        @foreach (var p in Model.Posts)
+        {
+            <div class="col-md-4">
+                <div class="profile-post">
+                    <img src="@Url.Content(p.Img)" style="max-height:100%; max-width:100%"/>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+
