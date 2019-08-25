@@ -1,6 +1,8 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Lato', sans-serif;
+    background-color: #fafafa;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -25,16 +27,20 @@ textarea {
 
 
 .article-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    height: auto;
-    transform: translate(-50%,-50%);
+    margin-right: auto;
+    margin-left:auto;
+    max-width: 614px;
+    width: 100%;
+    margin-top:30px;
 }
 .card {
-    display: table;
-    margin: 0 auto;
-    border: 1px solid black;
+    margin-bottom: 60px;
+    height: 930px;
+    background-color: #ecf0f1;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: .25rem;
+    box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.25);
 }
 
 .card-header {
@@ -44,9 +50,22 @@ textarea {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    background-color:antiquewhite;
+    background-color: #fff;
 }
 
+.card-img {
+    background-color: black;
+    height: 614px;
+}
+.card-bottom {
+    padding: 0 16px;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    background-color: aqua;
+    height: 256px;
+    background-color: #fff;
+}
 .header-icon {
     -webkit-align-self: center;
     -ms-flex-item-align: center;
@@ -57,7 +76,6 @@ textarea {
     -ms-flex: none;
     flex: none;
 }
-
 .header-name {
     -webkit-box-align: start;
     -webkit-align-items: flex-start;
@@ -77,3 +95,9 @@ textarea {
     margin-left: 12px;
     overflow: hidden;
 }
+.nav-style {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.0975);
+}
+
+/*Bootstrap overrides*/
