@@ -1,0 +1,43 @@
+﻿@model IEnumerable<petogram.Models.Post>
+
+@{
+    ViewBag.Title = "Mine";
+}
+
+<h2>Mine</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="article-container">
+                @foreach (var p in Model)
+                {
+                    <article class="card mb-4 shadow-sm">
+                        <header class="card-header">
+                            <div class="header-icon">
+                                @p.Location
+                            </div>
+                            <div class="header-name">
+                                @p.User.Name
+                            </div>
+                        </header>
+                        <div class="card-img">
+                            <img src="@Url.Content(p.Img)" style="max-height:100%; max-width:100%" />
+                        </div>
+                        <div class="card-bottom">
+                            @p.Description
+                            
+                        </div>
+
+                    </article>
+
+                }
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>
