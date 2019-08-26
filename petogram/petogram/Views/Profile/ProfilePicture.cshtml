@@ -1,0 +1,27 @@
+﻿@model petogram.ViewModels.ProfileViewModel
+
+@{
+    ViewBag.Title = "ProfilePicture";
+}
+
+<h2>ProfilePicture</h2>
+
+@using (Html.BeginForm("ProfilePicture","Profile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImgPath, htmlAttributes: new { @class = "control-label col-md-2" })
+            <input type="file" name="ImgFile" required />
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

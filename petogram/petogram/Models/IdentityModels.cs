@@ -19,6 +19,8 @@ namespace petogram.Models
 
         public string Biography { get; set; }
 
+        public string ProfilePicture { get; set; }
+
 
         public ICollection<Following> Followers { get; set; }
         public ICollection<Following> Followees { get; set; }

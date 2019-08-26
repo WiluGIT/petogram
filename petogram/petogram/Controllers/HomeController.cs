@@ -22,18 +22,5 @@ namespace petogram.Controllers
         }
 
 
-        [Authorize]
-        public ActionResult MyProfile()
-        {
-            var userId = User.Identity.GetUserId();
-            var user = db.Users.Where(m => m.Id == userId)
-                .Include(m => m.Posts)
-                .FirstOrDefault();
-
-
-            return View(user);
-        }
-
-
     }
 }

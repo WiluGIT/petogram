@@ -7,31 +7,31 @@
     <header class="profile-header">
         <div class="profile-picture-cont">
             <div class="profile-picture-box">
-                <button class="profile-pic-button">
-                    <img class="be6sR" src="~/img/xd.jpg" style="max-height:100%; max-width:100%" />
-                </button>
+                <a class="profile-pic-button" href="@Url.Action("ProfilePicture","Profile")">
+                    <img class="be6sR" src="@Url.Content(Model.ProfilePicture)" style="max-height:100%; max-width:100%" />
+                </a>
+
             </div>
             
         </div>
         <section class="header-section">
             <div class="header-box">
                 <h1 class="fKFbl" style="float:left;">@Model.Name</h1>
-                <a href="#">
-                    <button  class="btn btn-info">Edit</button>
-                </a>
+                @Html.ActionLink("Edit","Edit","Profile", new { @class = "btn btn-default"})
             </div>
             <div class="bio">
-                siema ja gej
+                @Model.Biography
             </div>
+
             <div class="profile-li">
                 <ul>
                     <li>
-                        Posts:
+                        Posts: <strong>@Model.Posts.Count</strong>
                     </li>
-                    <li>
+                    <li style="margin-left:30px;">
                         Followers:
                     </li>
-                    <li>
+                    <li style="margin-left:30px;">
                         Followees:
                     </li>
                 </ul>
