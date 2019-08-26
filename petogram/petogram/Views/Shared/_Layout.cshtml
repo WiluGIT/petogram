@@ -24,12 +24,23 @@
                         <i class="fa fa-paw"></i> |
                         Petogram
                     </div>
-                    
+
                 </a>
-                
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li>
+                        @using (Html.BeginForm("SearchResult", "Profile", FormMethod.Get))
+                        {
+                            <form class="form-inline" role="form">
+                                <div class="form-group has-feedback search-bar">
+                                    @Html.TextBox("query","", new { @class= "form-control input-sm",@placeholder="Search" })
+                                    <span class="fa fa-search form-control-feedback"></span>
+                                </div>
+                            </form>
+                        }
+                    </li>
                     <li>@Html.ActionLink("Add a post", "Create", "Post")</li>
                     <li>@Html.ActionLink("My posts", "Mine", "Post")</li>
                     <li>@Html.ActionLink("My profile", "MyProfile", "Profile")</li>

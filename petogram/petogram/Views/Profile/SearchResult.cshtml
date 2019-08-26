@@ -1,0 +1,17 @@
+﻿@model IEnumerable<petogram.Models.ApplicationUser>
+@{
+    ViewBag.Title = "SearchResult";
+}
+
+<h2>SearchResult</h2>
+
+@foreach(var u in Model)
+{
+   <div>
+       @u.Name
+   </div>
+   <div>
+       @u.Biography
+   </div>
+
+}

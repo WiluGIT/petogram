@@ -167,8 +167,11 @@ textarea {
 .profile-post {
     margin-bottom: 30px;
 }
-/*Bootstrap overrides*/
 
+.search-bar{
+    margin-top:13px;
+}
+/*Bootstrap overrides*/
 .navbar-inverse .navbar-brand {
     color: #ff0000ad;
 }
