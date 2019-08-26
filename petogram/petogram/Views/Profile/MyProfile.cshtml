@@ -10,14 +10,17 @@
                 <a class="profile-pic-button" href="@Url.Action("ProfilePicture","Profile")">
                     <img class="be6sR" src="@Url.Content(Model.ProfilePicture)" style="max-height:100%; max-width:100%" />
                 </a>
-
             </div>
-            
+
         </div>
+        <div style="text-align:center;">
+            @Html.ActionLink("Manage account", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @styles = "text-align:center;" })
+        </div>
+
         <section class="header-section">
             <div class="header-box">
                 <h1 class="fKFbl" style="float:left;">@Model.Name</h1>
-                @Html.ActionLink("Edit","Edit","Profile", new { @class = "btn btn-default"})
+                @Html.ActionLink("Edit", "Edit", "Profile", new { @class = "btn btn-default" })
             </div>
             <div class="bio">
                 @Model.Biography

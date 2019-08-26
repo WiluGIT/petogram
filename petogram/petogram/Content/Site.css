@@ -168,3 +168,19 @@ textarea {
     margin-bottom: 30px;
 }
 /*Bootstrap overrides*/
+
+.navbar-inverse .navbar-brand {
+    color: #ff0000ad;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #000000;
+}
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+    color: #848484;
+    background-color: transparent;
+}
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: #848484;
+    background-color: transparent;
+}
