@@ -5,13 +5,46 @@
 
 <h2>SearchResult</h2>
 
-@foreach(var u in Model)
+<div class="container">
+
+    @foreach (var u in Model)
+    {
+        <div class="element-cnt">
+            <div class="pic-cnt">
+                <span class="pic-spn">
+                    <img src="@Url.Content(u.ProfilePicture)" style="height:100%; width:100%" />
+                </span>
+            </div>
+            <div class="desc-cnt">
+                <span>
+                    @u.Name
+                </span>
+                <br />
+                <span>
+                    @u.Biography
+                </span>
+                <br />
+                <div class="profile-lisr">
+                    <ul>
+                        <li>
+                            Posts: <strong>@u.Posts.Count</strong>
+                        </li>
+                        <li style="margin-left:30px;">
+                            Followers:
+                        </li>
+                        <li style="margin-left:30px;">
+                            Followees:
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+@section scripts
 {
-   <div>
-       @u.Name
-   </div>
-   <div>
-       @u.Biography
-   </div>
+
 
 }

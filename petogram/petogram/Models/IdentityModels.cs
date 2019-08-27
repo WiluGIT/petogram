@@ -70,6 +70,10 @@ namespace petogram.Models
                 .WillCascadeOnDelete(false);
 
 
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany(u => u.Followees)
+                .WithRequired(f => f.Follower)
+                .WillCascadeOnDelete(false);
 
 
 

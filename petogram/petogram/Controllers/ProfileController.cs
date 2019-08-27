@@ -93,18 +93,13 @@ namespace petogram.Controllers
         }
 
 
-        public ActionResult Search(SearchViewModel model)
-        {
-  
-            return RedirectToAction("SearchResult", "Profile", new { query = model.SearchTerm });
-        }
-
         public ActionResult SearchResult(string query)
         {
             if(!String.IsNullOrEmpty(query))
             {
                 var profiles = db.Users
                     .Where(m => m.Name.Contains(query))
+                    .Include(m=>m.Posts)
                     .ToList();
 
                 return View(profiles);

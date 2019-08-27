@@ -28,6 +28,7 @@ namespace petogram.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public ActionResult Create()
         {
             return View();
