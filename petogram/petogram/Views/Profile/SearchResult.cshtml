@@ -1,4 +1,4 @@
-﻿@model IEnumerable<petogram.Models.ApplicationUser>
+﻿@model petogram.ViewModels.SearchViewModel
 @{
     ViewBag.Title = "SearchResult";
 }
@@ -7,7 +7,7 @@
 
 <div class="container">
 
-    @foreach (var u in Model)
+    @foreach (var u in Model.Profiles)
     {
         <div class="element-cnt">
             <div class="pic-cnt">
@@ -17,7 +17,7 @@
             </div>
             <div class="desc-cnt">
                 <span>
-                    @u.Name <button class="btn btn-link btn-sm js-toggle-follow btn-follow" data-user-id="@u.Id">Follow</button>
+                    @u.Name <button class="btn @(Model.Followings.Contains(u.Id) ? "btn-info" : "btn-default") btn-sm js-toggle-follow btn-follow" data-user-id="@u.Id">Follow</button>
                 </span>
                 <br />
                 <span>
@@ -45,23 +45,47 @@
 
 @section scripts
 {
+
     <script>
         $(document).ready(function () {
             $(".js-toggle-follow").click(function (e) {
                 var button = $(e.target);
-                $.post("/api/followings", { "": button.attr("data-user-id") })
-                    .done(function () {
-                        button.text("Following");
-
+                if (button.hasClass("btn-default")) {
+                    $.post("/api/followings", { "": button.attr("data-user-id") })
+                        .done(function () {
+                            button
+                                .removeClass("btn-default")
+                                .addClass("btn-info")
+                                .text("Following")
+                        })
+                        .fail(function () {
+                            alert("Something failed1!");
+                        });
+                }
+                else {
+                    $.ajax({
+                        url: "/api/followings/" + button.attr("data-user-id"),
+                        method: "DELETE"
 
                     })
-                    .fail(function () {
-                        alert("Something failed!");
-                    });
+                        .done(function () {
+                            button
+                                .removeClass("btn-info")
+                                .addClass("btn-default")
+                                .text("Follow");
+                        })
+                        .fail(function () {
+                            alert("Something failed2!");
+                        });
+                }
+
+
 
             });
         });
+
+
     </script>
-    
+
 
 }

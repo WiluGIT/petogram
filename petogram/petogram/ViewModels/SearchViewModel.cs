@@ -9,6 +9,6 @@ namespace petogram.ViewModels
     public class SearchViewModel
     {
         public IEnumerable<ApplicationUser> Profiles { get; set; }
-        public ILookup<int,Following> Followings { get; set; }
+        public ILookup<string,Following> Followings { get; set; }
     }
 }

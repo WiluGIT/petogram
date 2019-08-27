@@ -40,5 +40,22 @@ namespace petogram.Controllers.Api
             return Ok();
 
         }
+
+        [HttpDelete]
+        public IHttpActionResult DeleteFollowing(string id)
+        {
+            var userId = User.Identity.GetUserId();
+
+            var following = db.Followings
+                .SingleOrDefault(f => f.FollowerId == userId && f.FolloweeId == id);
+
+            if (following == null)
+                return NotFound();
+
+            db.Followings.Remove(following);
+            db.SaveChanges();
+
+            return Ok(id);
+        }
     }
 }
