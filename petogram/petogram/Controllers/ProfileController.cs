@@ -26,6 +26,8 @@ namespace petogram.Controllers
             var userId = User.Identity.GetUserId();
             var user = db.Users.Where(m => m.Id == userId)
                 .Include(m => m.Posts)
+                .Include(m=>m.Followees)
+                .Include(m=>m.Followers)
                 .FirstOrDefault();
 
 
@@ -95,17 +97,22 @@ namespace petogram.Controllers
 
         public ActionResult SearchResult(string query)
         {
+            var userId = User.Identity.GetUserId();
             if(!String.IsNullOrEmpty(query))
             {
                 var profiles = db.Users
-                    .Where(m => m.Name.Contains(query))
+                    .Where(m => m.Name.Contains(query) && !m.Id.Equals(userId))
                     .Include(m=>m.Posts)
+                    .Include(m=>m.Followers)
+                    .Include(m=>m.Followees)
                     .ToList();
+
 
                 return View(profiles);
             }
 
-            return View();
+            //TODO zrobic obsluge null excepction w widoku
+            return RedirectToAction("Index", "Home");
         }
 
 

@@ -17,7 +17,7 @@
             </div>
             <div class="desc-cnt">
                 <span>
-                    @u.Name
+                    @u.Name <button class="btn btn-link btn-sm js-toggle-follow btn-follow" data-user-id="@u.Id">Follow</button>
                 </span>
                 <br />
                 <span>
@@ -30,10 +30,10 @@
                             Posts: <strong>@u.Posts.Count</strong>
                         </li>
                         <li style="margin-left:30px;">
-                            Followers:
+                            Followers: <strong>@u.Followers.Count</strong>
                         </li>
                         <li style="margin-left:30px;">
-                            Followees:
+                            Following: <strong>@u.Followees.Count</strong>
                         </li>
                     </ul>
                 </div>
@@ -45,6 +45,23 @@
 
 @section scripts
 {
+    <script>
+        $(document).ready(function () {
+            $(".js-toggle-follow").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/followings", { "": button.attr("data-user-id") })
+                    .done(function () {
+                        button.text("Following");
 
+
+                    })
+                    .fail(function () {
+                        alert("Something failed!");
+                    });
+
+            });
+        });
+    </script>
+    
 
 }

@@ -29,6 +29,7 @@ namespace petogram.Models
 
         public ApplicationUser()
         {
+            ProfilePicture = "~/img/default.png";
             Followers = new Collection<Following>();
             Followees = new Collection<Following>();
             Pets = new Collection<Pet>();

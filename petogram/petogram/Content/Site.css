@@ -127,10 +127,8 @@ textarea {
     padding: 0;
 }
 .be6sR {
-    height: 100%;
-    left: 0;
-    top: 0;
-    width: 100%;
+    max-height: 100%;
+    max-width: 100%
 }
 .header-section {
     margin-bottom: 44px;
@@ -176,9 +174,16 @@ textarea {
     float: left;
 }
 
+.btn-follow{
+    margin-bottom:3px;
+    font-size:14px;
+}
+
 
 .profile-post {
     margin-bottom: 30px;
+    height:360px;
+    width:360px;
 }
 
 .search-bar{

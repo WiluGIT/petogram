@@ -32,7 +32,7 @@ namespace petogram.Controllers.Api
                 FollowerId = userId,
                 FolloweeId = followeId
             };
-
+            
             db.Followings.Add(following);
             db.SaveChanges();
 

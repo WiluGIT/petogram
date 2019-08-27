@@ -8,7 +8,7 @@
         <div class="profile-picture-cont">
             <div class="profile-picture-box">
                 <a class="profile-pic-button" href="@Url.Action("ProfilePicture","Profile")">
-                    <img class="be6sR" src="@Url.Content(Model.ProfilePicture)" style="max-height:100%; max-width:100%" />
+                    <img class="be6sR" src="@Url.Content(Model.ProfilePicture)" />
                 </a>
             </div>
 
@@ -32,10 +32,10 @@
                         Posts: <strong>@Model.Posts.Count</strong>
                     </li>
                     <li style="margin-left:30px;">
-                        Followers:
+                        Followers: <strong>@Model.Followers.Count</strong>
                     </li>
                     <li style="margin-left:30px;">
-                        Followees:
+                        Following:<strong>@Model.Followees.Count</strong>
                     </li>
                 </ul>
             </div>

@@ -1,48 +1,37 @@
-﻿
+﻿@model IEnumerable<petogram.Models.Post>
 @{
     ViewBag.Title = "Home Page";
 }
 
+@if(User.Identity.IsAuthenticated)
+{
 <div class="container">
     <div class="row">
         <div class="col-12">
             <div class="article-container">
-
-                <article class="card mb-4 shadow-sm">
-                    <header class="card-header">
-                        <div class="header-icon">
-                            <img src="~/img/tmpIcon.jpg" />
+                @foreach (var p in Model)
+                {
+                    <article class="card mb-4 shadow-sm">
+                        <header class="card-header">
+                            <div class="header-icon">
+                                @p.Location
+                            </div>
+                            <div class="header-name">
+                                @p.User.Name
+                            </div>
+                        </header>
+                        <div class="card-img">
+                            <img src="@Url.Content(p.Img)" style="height:100%; width:100%;" />
                         </div>
-                        <div class="header-name">
-
-                        </div>
-                    </header>
-                    <div class="card-img">
-                        <img src="~/img/white2115.jpg" style="max-height:100%; max-width:100%" />
-                    </div>
-                    <div class="card-bottom">
-
-                    </div>
-
-                </article>
-
-                <article class="card mb-4 shadow-sm">
-                    <header class="card-header">
-                        <div class="header-icon">
-                            <img src="~/img/tmpIcon.jpg" />
-                        </div>
-                        <div class="header-name">
+                        <div class="card-bottom">
+                            @p.Description
 
                         </div>
-                    </header>
-                    <div class="card-img">
 
-                    </div>
-                    <div class="card-bottom">
+                    </article>
 
-                    </div>
+                }
 
-                </article>
             </div>
 
         </div>
@@ -51,4 +40,7 @@
 
 
 </div>
+}
+
+
 

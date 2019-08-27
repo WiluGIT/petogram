@@ -16,9 +16,18 @@ namespace petogram.Controllers
         {
             db = new ApplicationDbContext();
         }
+        
+
         public ActionResult Index()
         {
-            return View();
+            var userId = User.Identity.GetUserId();
+
+            var user = db.Users.Where(m => m.Id == userId).Include(m => m.Followees).FirstOrDefault();
+
+           
+            
+
+            return View(db.Posts.Include(m=>m.User).ToList());
         }
 
 

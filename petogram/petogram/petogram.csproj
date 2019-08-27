@@ -224,6 +224,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\default.png" />
     <Content Include="img\tmpIcon.jpg" />
     <Content Include="img\xd.jpg" />
     <Content Include="Scripts\bootstrap.js" />
