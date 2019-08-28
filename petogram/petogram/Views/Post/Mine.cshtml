@@ -4,8 +4,6 @@
     ViewBag.Title = "Mine";
 }
 
-<h2>Mine</h2>
-
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -15,18 +13,31 @@
                     <article class="card mb-4 shadow-sm">
                         <header class="card-header">
                             <div class="header-icon">
-                                @p.Location
+                                <div class="pic-cnt" style="margin-left:10px; margin-top:5px;">
+                                    <span class="pic-spn" style="width:50px; height:50px;">
+                                        <img src="@Url.Content(p.User.ProfilePicture)" style="height:100%; width:100%" />
+                                    </span>
+                                </div>
                             </div>
                             <div class="header-name">
-                                @p.User.Name
+                                <strong>@p.User.Name</strong>
+                                <br />
+                                @p.Location
                             </div>
                         </header>
                         <div class="card-img">
                             <img src="@Url.Content(p.Img)" style="max-height:100%; max-width:100%" />
                         </div>
                         <div class="card-bottom">
-                            @p.Description
-                            
+                            <div class="bot-likes">
+
+                            </div>
+                            <hr />
+                            <div class="bot-desc">
+                                @p.Description
+
+                            </div>
+       
                         </div>
 
                     </article>
