@@ -12,6 +12,7 @@ namespace petogram.Models
         public string Description { get; set; }
         public string Img { get; set; }
         public string Location { get; set; }
+        public int Like { get; set; }
 
         [Required]
         public string UserId { get; set; }

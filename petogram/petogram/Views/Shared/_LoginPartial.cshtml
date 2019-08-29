@@ -6,7 +6,7 @@
     @Html.AntiForgeryToken()
 
 <ul class="nav navbar-nav navbar-right">
-    <li><a href="@Url.Action("MyProfile","Profile")"><i class="fa fa-user nav-fonts"></i></a></li>
+    <li><a title="My profile" href="@Url.Action("MyProfile","Profile")"><i class="fa fa-user nav-fonts"></i></a></li>
     <li><a title="Log off" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-power-off nav-fonts"></i></a></li>
 </ul>
     }

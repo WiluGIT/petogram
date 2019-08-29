@@ -231,6 +231,10 @@ textarea {
     display: inline-block;
     vertical-align: top;
 }
+
+.siema{
+    color:red;
+}
 /*Bootstrap overrides*/
 .navbar-inverse .navbar-brand {
     color: #ff0000ad;
