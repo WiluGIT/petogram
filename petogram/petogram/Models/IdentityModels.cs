@@ -26,6 +26,7 @@ namespace petogram.Models
         public ICollection<Following> Followees { get; set; }
         public ICollection<Pet> Pets { get; set; }
         public ICollection<Post> Posts { get; set; }
+        public ICollection<Like> Likes { get; set; }
 
         public ApplicationUser()
         {
@@ -34,6 +35,7 @@ namespace petogram.Models
             Followees = new Collection<Following>();
             Pets = new Collection<Pet>();
             Posts = new Collection<Post>();
+            Likes = new Collection<Like>();
         }
 
 
@@ -51,7 +53,7 @@ namespace petogram.Models
         public DbSet<Pet> Pets { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Following> Followings { get; set; }
-
+        public DbSet<Like> Likes { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -75,6 +77,15 @@ namespace petogram.Models
                 .HasMany(u => u.Followees)
                 .WithRequired(f => f.Follower)
                 .WillCascadeOnDelete(false);
+
+
+            modelBuilder.Entity<Like>()
+                .HasRequired(m => m.User)
+                .WithMany(m => m.Likes)
+                .WillCascadeOnDelete(false);
+
+
+
 
 
 

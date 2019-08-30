@@ -75,7 +75,19 @@ namespace petogram.Controllers
                 .ToList();
 
 
-            return View(posts);
+
+            var likeings = db.Likes.Where(m => m.UserId == userId)
+                .ToList()
+                .ToLookup(m => m.PostId);
+
+            var model = new LickViewModel
+            {
+                Posts = posts,
+                Likeings= likeings
+            };
+
+
+            return View(model);
         }
     }
 }

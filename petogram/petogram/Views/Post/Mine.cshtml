@@ -1,4 +1,4 @@
-﻿@model IEnumerable<petogram.Models.Post>
+﻿@model petogram.ViewModels.LickViewModel
 
 @{
     ViewBag.Title = "Mine";
@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-12">
             <div class="article-container">
-                @foreach (var p in Model)
+                @foreach (var p in Model.Posts)
                 {
                     <article class="card mb-4 shadow-sm">
                         <header class="card-header">
@@ -30,8 +30,10 @@
                         </div>
                         <div class="card-bottom">
                             <div class="bot-likes">
-                                <button class="siema js-toggle-lick" data-post-id="@p.Id" ><i class="fa fa-heart"></i></button>
-                                
+
+              
+                                <button class="@(Model.Likeings.Contains(p.Id) ? "heart-r" : "heart-g") btn-sm js-toggle-like btn-follow" data-post-id="@p.Id"><i class="fa fa-heart"></i></button>
+
 
 
                             </div>
@@ -40,7 +42,7 @@
                                 @p.Description
 
                             </div>
-       
+
                         </div>
 
                     </article>
@@ -57,18 +59,18 @@
 </div>
 
 @section scripts{
-    
-<script>
+
+    <script>
         $(document).ready(function () {
-            $(".js-toggle-lick").click(function (e) {
+            $(".js-toggle-like").click(function (e) {
                 var button = $(e.target);
-                if (button.hasClass("btn-default")) {
+                if (button.hasClass("heart-g")) {
                     $.post("/api/posts", { "": button.attr("data-post-id") })
                         .done(function () {
                             button
-                                .removeClass("btn-default")
-                                .addClass("btn-info")
-                                .text("Following")
+                                .removeClass("heart-g")
+                                .addClass("heart-r");
+
                         })
                         .fail(function () {
                             alert("Something failed1!");
@@ -82,9 +84,9 @@
                     })
                         .done(function () {
                             button
-                                .removeClass("btn-info")
-                                .addClass("btn-default")
-                                .text("Follow");
+                                .removeClass("heart-r")
+                                .addClass("heart-g");
+
                         })
                         .fail(function () {
                             alert("Something failed2!");
@@ -97,7 +99,8 @@
         });
 
 
-</script>
-    
-    
+    </script>
+
+
+
 }

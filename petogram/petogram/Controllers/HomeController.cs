@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using petogram.Models;
+using petogram.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -22,12 +23,24 @@ namespace petogram.Controllers
         {
             var userId = User.Identity.GetUserId();
 
-            var user = db.Users.Where(m => m.Id == userId).Include(m => m.Followees).FirstOrDefault();
+            var posts = db.Posts
+                .Include(m => m.User)
+                .ToList();
 
-           
-            
+            var likeings = db.Likes.Where(m => m.UserId == userId)
+                .ToList()
+                .ToLookup(m => m.PostId);
 
-            return View(db.Posts.Include(m=>m.User).ToList());
+            var model = new LickViewModel
+            {
+                Posts = posts,
+                Likeings = likeings
+            };
+
+
+
+
+            return View(model);
         }
 
 

@@ -207,6 +207,14 @@
     <Compile Include="Migrations\201908282042263_AddLike.Designer.cs">
       <DependentUpon>201908282042263_AddLike.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908301421334_LikeCount.cs" />
+    <Compile Include="Migrations\201908301421334_LikeCount.Designer.cs">
+      <DependentUpon>201908301421334_LikeCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908301535501_LikeForeign.cs" />
+    <Compile Include="Migrations\201908301535501_LikeForeign.Designer.cs">
+      <DependentUpon>201908301535501_LikeForeign.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Following.cs" />
@@ -317,6 +325,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908282042263_AddLike.resx">
       <DependentUpon>201908282042263_AddLike.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908301421334_LikeCount.resx">
+      <DependentUpon>201908301421334_LikeCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908301535501_LikeForeign.resx">
+      <DependentUpon>201908301535501_LikeForeign.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

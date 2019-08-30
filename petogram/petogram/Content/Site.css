@@ -232,8 +232,12 @@ textarea {
     vertical-align: top;
 }
 
-.siema{
+.heart-r{
     color:red;
+
+}
+.heart-g{
+    color:grey;
 }
 /*Bootstrap overrides*/
 .navbar-inverse .navbar-brand {
