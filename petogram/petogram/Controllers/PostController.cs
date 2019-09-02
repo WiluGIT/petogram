@@ -89,5 +89,13 @@ namespace petogram.Controllers
 
             return View(model);
         }
+
+
+        public ActionResult RefreshLike(int id)
+        {
+            var post = db.Posts.Single(m => m.Id == id);
+
+            return Json(post.LikeCount);
+        }
     }
 }

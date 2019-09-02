@@ -178,9 +178,17 @@ textarea {
     float: left;
 }
 
-.btn-follow{
-    margin-bottom:3px;
-    font-size:14px;
+.btn-follow {
+    font-size: 14px;
+
+}
+.btn-like {
+    font-size: 20px;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    overflow: hidden;
+    outline: none;
 }
 
 

@@ -8,6 +8,9 @@
     <div class="row">
         <div class="col-12">
             <div class="article-container">
+                @{ 
+                    var i = 0;
+                }
                 @foreach (var p in Model.Posts)
                 {
                     <article class="card mb-4 shadow-sm">
@@ -32,8 +35,8 @@
                             <div class="bot-likes">
 
 
-                                <button class="@(Model.Likeings.Contains(p.Id) ? "heart-r" : "heart-g") btn-sm js-toggle-like btn-follow" data-post-id="@p.Id"><i class="fa fa-heart"></i></button>
-
+                                <button class="@(Model.Likeings.Contains(p.Id) ? "heart-r" : "heart-g") js-toggle-like btn-like" data-like-id="@i" data-post-id="@p.Id"><i class="fa fa-heart"></i></button>
+                                <span id="spn-like-@i">@p.LikeCount</span>
 
 
                             </div>
@@ -46,7 +49,7 @@
                         </div>
 
                     </article>
-
+                    i++;
                 }
 
             </div>
@@ -64,12 +67,21 @@
         $(document).ready(function () {
             $(".js-toggle-like").click(function (e) {
                 var button = $(e.target);
+
                 if (button.hasClass("heart-g")) {
                     $.post("/api/posts", { "": button.attr("data-post-id") })
                         .done(function () {
                             button
                                 .removeClass("heart-g")
                                 .addClass("heart-r");
+                            $.ajax({
+                                method: "POST",
+                                async: true,
+                                url: '/Post/RefreshLike/' + button.attr("data-post-id"),
+                                success: function (data) {
+                                    $("#spn-like-" + button.attr("data-like-id")).html(data);
+                                }
+                            })
 
                         })
                         .fail(function () {
@@ -79,13 +91,21 @@
                 else {
                     $.ajax({
                         url: "/api/posts/" + button.attr("data-post-id"),
-                        method: "DELETE"
+                        method: "DELETE",
 
                     })
                         .done(function () {
                             button
                                 .removeClass("heart-r")
                                 .addClass("heart-g");
+                            $.ajax({
+                                method: "POST",
+                                async: true,
+                                url: '/Post/RefreshLike/' + button.attr("data-post-id"),
+                                success: function (data) {
+                                    $("#spn-like-" + button.attr("data-like-id")).html(data);
+                                }
+                            })
 
                         })
                         .fail(function () {
@@ -96,6 +116,8 @@
 
 
             });
+
+
         });
 
 
