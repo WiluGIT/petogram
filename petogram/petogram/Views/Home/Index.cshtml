@@ -25,7 +25,7 @@
                             <div class="header-name">
                                 <strong>@p.User.Name</strong>
                                 <br />
-                                @p.Location
+                                <i class="fas fa-map-marker-alt"></i>  @p.Location
                             </div>
                         </header>
                         <div class="card-img">
@@ -36,15 +36,15 @@
 
 
                                 <button class="@(Model.Likeings.Contains(p.Id) ? "heart-r" : "heart-g") js-toggle-like btn-like" data-like-id="@i" data-post-id="@p.Id"><i class="fa fa-heart"></i></button>
-                                <span id="spn-like-@i">@p.LikeCount</span>
+                                <span id="spn-like-@i">Liked by <strong>@p.LikeCount</strong> users</span>
 
 
                             </div>
-                            <hr />
                             <div class="bot-desc">
                                 @p.Description
 
                             </div>
+                            <hr />
 
                         </div>
 
@@ -79,7 +79,7 @@
                                 async: true,
                                 url: '/Post/RefreshLike/' + button.attr("data-post-id"),
                                 success: function (data) {
-                                    $("#spn-like-" + button.attr("data-like-id")).html(data);
+                                    $("#spn-like-" + button.attr("data-like-id")).html("Liked by " + "<strong>" + data + "</strong>" + " users");
                                 }
                             })
 
@@ -103,7 +103,7 @@
                                 async: true,
                                 url: '/Post/RefreshLike/' + button.attr("data-post-id"),
                                 success: function (data) {
-                                    $("#spn-like-" + button.attr("data-like-id")).html(data);
+                                    $("#spn-like-" + button.attr("data-like-id")).html("Liked by " + "<strong>" + data + "</strong>" + " users");
                                 }
                             })
 
