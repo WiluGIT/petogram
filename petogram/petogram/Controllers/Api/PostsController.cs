@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace petogram.Controllers.Api
 {
+    [Authorize]
     public class PostsController : ApiController
     {
         private ApplicationDbContext db;

@@ -14,6 +14,7 @@ namespace petogram.Models
         public string Img { get; set; }
         public string Location { get; set; }
         public int LikeCount { get; set; }
+        public int CommentCount { get; set; }
 
 
         [Required]

@@ -40,11 +40,33 @@
 
 
                             </div>
-                            <div class="bot-desc">
-                                @p.Description
+                            <div class="bot-crd">
+                                <ul>
+                                    <li class="bot-dsc">
+                                        @p.Description
+                                    </li>
+                                    <li>
+
+                                    </li>
+                                </ul>
+                                
 
                             </div>
-                            <hr />
+                            <section>
+                                <div>
+                                    <form method="post">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input id="textbox-@p.Id" type="text" class="form-control" placeholder="Add a comment">
+                                            </div>
+                                        </div>
+                                        <button id='post-com' data-post2-id="@p.Id" class="btn btn-success" type="submit">Public</button>
+                                    </form>
+
+                                </div>
+                            </section>
+
+
 
                         </div>
 
@@ -114,6 +136,23 @@
                 }
 
 
+
+            });
+            
+            $("button[id='post-com']").click(function (e) {
+                e.preventDefault();
+                var elem = $(this);
+                var id = elem.attr("data-post2-id");
+                var content = $("#textbox-" + elem.attr("data-post2-id")).val();
+
+                $.ajax({
+                    type: "POST",
+                    url: '/api/comments/' + '?' + 'id=' + id + '&' + 'content=' + content,
+                    success: function (result) {
+                        alert(result);
+                    }
+
+                })
 
             });
 

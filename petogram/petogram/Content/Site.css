@@ -247,6 +247,18 @@ textarea {
 .heart-g{
     color:grey;
 }
+
+.txt-area {
+    background: 0 0;
+    border: 0;
+    color: #262626;
+    font-size: inherit;
+    height: 18px;
+    max-height: 80px;
+    outline: 0;
+    padding: 0;
+    resize: none;
+}
 /*Bootstrap overrides*/
 .navbar-inverse .navbar-brand {
     color: #ff0000ad;
