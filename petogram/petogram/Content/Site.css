@@ -281,6 +281,15 @@ textarea {
     right: 0;
     top: 0.2px;
 }
+.ul-cmt {
+    list-style-type: none;
+    margin-top: 10px;
+    padding: 0;
+}
+.bot-dsc{
+    margin-bottom:10px;
+    margin-top:20px;
+}
 /*Bootstrap overrides*/
 .navbar-inverse .navbar-brand {
     color: #ff0000ad;
@@ -297,6 +306,14 @@ textarea {
     color: #848484;
     background-color: transparent;
 }
+
+/*Tags overrides*/
 input, select, textarea {
     max-width:620px;
+}
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid #eee;
 }

@@ -41,13 +41,57 @@
 
                             </div>
                             <div class="bot-crd">
-                                <ul>
-                                    <li class="bot-dsc">
-                                        @p.Description
-                                    </li>
+                                <ul class="ul-cmt">
                                     <li>
-
+                                        @p.Description
+                                        <hr />
                                     </li>
+
+                                    @if (p.Comments.Any())
+                                    {
+                                        if (p.CommentCount == 1)
+                                        {
+                                            var com1 = p.Comments.ElementAt(p.Comments.Count - 1);
+                                            <li class="bot-dsc">
+                                                <strong>@com1.User.Name</strong> @com1.Content
+                                            </li>
+                                        }
+                                        else if (p.CommentCount == 2)
+                                        {
+                                            var com2 = p.Comments.ElementAt(p.Comments.Count - 1);
+                                            var com3 = p.Comments.ElementAt(p.Comments.Count - 2);
+
+                                            <li class="bot-dsc">
+                                                <strong>@com3.User.Name</strong> @com3.Content
+
+                                            </li>
+                                            <li class="bot-dsc">
+                                                <strong>@com2.User.Name</strong> @com2.Content
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            var com2 = p.Comments.ElementAt(p.Comments.Count - 1);
+                                            var com3 = p.Comments.ElementAt(p.Comments.Count - 2);
+
+                                            @Html.ActionLink("Zobacz wszystkie komentarze (" + p.CommentCount + ")", "Single", "Post")
+                                            <li class="bot-dsc">
+                                                <strong>@com3.User.Name</strong> @com3.Content
+
+                                            </li>
+                                            <li class="bot-dsc">
+                                                <strong>@com2.User.Name</strong> @com2.Content
+                                            </li>
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        <li class="bot-dsc">
+                                            nie ma komenta
+                                        </li>
+                                    }
+
                                 </ul>
                                 
 

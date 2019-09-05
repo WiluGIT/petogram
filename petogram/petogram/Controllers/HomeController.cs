@@ -25,6 +25,7 @@ namespace petogram.Controllers
 
             var posts = db.Posts
                 .Include(m => m.User)
+                .Include(m=>m.Comments)
                 .ToList();
 
             var likeings = db.Likes.Where(m => m.UserId == userId)
