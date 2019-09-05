@@ -16,9 +16,17 @@ namespace petogram.Models
         public int LikeCount { get; set; }
         public int CommentCount { get; set; }
 
+        public ICollection<Comment> Comments { get; set; }
+
 
         [Required]
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
+
+
+        public Post()
+        {
+            Comments = new Collection<Comment>();
+        }
     }
 }

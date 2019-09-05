@@ -53,14 +53,15 @@
 
                             </div>
                             <section>
-                                <div>
+                                <div class="cmt-inpt">
                                     <form method="post">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input id="textbox-@p.Id" type="text" class="form-control" placeholder="Add a comment">
+                                        <div >
+                                            <div class="text-box">
+                                                <input style="width:100%;" id="textbox-@p.Id" type="text" class="form-control" placeholder="Add a comment">
+                                                <button id='post-com' data-post2-id="@p.Id" class="btn btn-cmt pull-right" type="submit"><i class="fa fa-arrow-circle-up"></i></button>
                                             </div>
                                         </div>
-                                        <button id='post-com' data-post2-id="@p.Id" class="btn btn-success" type="submit">Public</button>
+                                        
                                     </form>
 
                                 </div>
@@ -150,7 +151,10 @@
                     url: '/api/comments/' + '?' + 'id=' + id + '&' + 'content=' + content,
                     success: function (result) {
                         alert(result);
+                    }, error: function (result) {
+                        alert("Something failed3!");
                     }
+
 
                 })
 

@@ -65,6 +65,7 @@ textarea {
     background-color: aqua;
     height: 256px;
     background-color: #fff;
+    position:relative;
 }
 .header-icon {
     -webkit-align-self: center;
@@ -178,7 +179,7 @@ textarea {
     float: left;
 }
 
-.btn-follow {
+.btn-follow {post-com
     font-size: 14px;
 
 }
@@ -259,6 +260,27 @@ textarea {
     padding: 0;
     resize: none;
 }
+
+.cmt-inpt{
+    position:absolute;
+    bottom:0;
+    left:0;
+
+}
+.inline{
+    display:inline-block;
+}
+.text-box {
+    width:612px;
+    position:relative;
+}
+.btn-cmt {
+    width: 62px;
+    height: 33px;
+    position: absolute;
+    right: 0;
+    top: 0.2px;
+}
 /*Bootstrap overrides*/
 .navbar-inverse .navbar-brand {
     color: #ff0000ad;
@@ -274,4 +296,7 @@ textarea {
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
     color: #848484;
     background-color: transparent;
+}
+input, select, textarea {
+    max-width:620px;
 }
