@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 using petogram.Models;
 using petogram.ViewModels;
 using System;
@@ -96,6 +97,34 @@ namespace petogram.Controllers
             var post = db.Posts.Single(m => m.Id == id);
 
             return Json(post.LikeCount);
+        }
+
+        public JsonResult RefreshComment(int id)
+        {
+            var post =db.Posts.Where(m => m.Id == id)
+                .Include(m=>m.Comments).Include(m=>m.User)
+                .FirstOrDefault();
+
+            var model = new CommentViewModel();
+            if(post.CommentCount==1)
+            {
+                var commentLast1 = post.Comments.ElementAt(post.Comments.Count - 1);
+                model.Content1 = commentLast1.Content;
+                model.User1 = commentLast1.User.Name;
+                var JSONresult1 = JsonConvert.SerializeObject(model, Formatting.Indented, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
+                return Json(JSONresult1);
+            }
+
+            var commentLast = post.Comments.ElementAt(post.Comments.Count - 1);
+            var commentSecound = post.Comments.ElementAt(post.Comments.Count - 2);
+
+            model.Content1 = commentLast.Content;
+            model.User1 = commentLast.User.Name;
+
+            model.Content2 = commentSecound.Content;
+            model.User2 = commentSecound.User.Name;
+            var JSONresult = JsonConvert.SerializeObject(model, Formatting.Indented, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
+            return Json(JSONresult);
         }
     }
 }

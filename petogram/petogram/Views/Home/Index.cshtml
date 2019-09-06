@@ -46,14 +46,16 @@
                                         @p.Description
                                         <hr />
                                     </li>
-
                                     @if (p.Comments.Any())
                                     {
                                         if (p.CommentCount == 1)
                                         {
                                             var com1 = p.Comments.ElementAt(p.Comments.Count - 1);
-                                            <li class="bot-dsc">
+                                            <li id="li-com1-@i" class="bot-dsc elem1">
                                                 <strong>@com1.User.Name</strong> @com1.Content
+                                            </li>
+                                            <li id="li-com2-@i" class="bot-dsc elem2">
+
                                             </li>
                                         }
                                         else if (p.CommentCount == 2)
@@ -61,11 +63,11 @@
                                             var com2 = p.Comments.ElementAt(p.Comments.Count - 1);
                                             var com3 = p.Comments.ElementAt(p.Comments.Count - 2);
 
-                                            <li class="bot-dsc">
+                                            <li id="li-com2-@i" class="bot-dsc elem2">
                                                 <strong>@com3.User.Name</strong> @com3.Content
 
                                             </li>
-                                            <li class="bot-dsc">
+                                            <li id="li-com1-@i" class="bot-dsc elem1">
                                                 <strong>@com2.User.Name</strong> @com2.Content
                                             </li>
                                         }
@@ -75,11 +77,11 @@
                                             var com3 = p.Comments.ElementAt(p.Comments.Count - 2);
 
                                             @Html.ActionLink("Zobacz wszystkie komentarze (" + p.CommentCount + ")", "Single", "Post")
-                                            <li class="bot-dsc">
+                                            <li id="li-com2-@i" class="bot-dsc elem2">
                                                 <strong>@com3.User.Name</strong> @com3.Content
 
                                             </li>
-                                            <li class="bot-dsc">
+                                            <li id="li-com1-@i" class="bot-dsc elem1">
                                                 <strong>@com2.User.Name</strong> @com2.Content
                                             </li>
                                         }
@@ -87,8 +89,11 @@
                                     }
                                     else
                                     {
-                                        <li class="bot-dsc">
-                                            nie ma komenta
+                                        <li id="li-com2-@i" class="bot-dsc elem1">
+
+                                        </li>
+                                        <li id="li-com1-@i" class="bot-dsc elem1">
+                                            
                                         </li>
                                     }
 
@@ -102,7 +107,7 @@
                                         <div >
                                             <div class="text-box">
                                                 <input style="width:100%;" id="textbox-@p.Id" type="text" class="form-control" placeholder="Add a comment">
-                                                <button id='post-com' data-post2-id="@p.Id" class="btn btn-cmt pull-right" type="submit"><i class="fa fa-arrow-circle-up"></i></button>
+                                                <button data-com-id="@i" id='post-com' data-post2-id="@p.Id" class="btn btn-cmt pull-right" type="submit"><i class="fa fa-arrow-circle-up"></i></button>
                                             </div>
                                         </div>
                                         
@@ -194,7 +199,21 @@
                     type: "POST",
                     url: '/api/comments/' + '?' + 'id=' + id + '&' + 'content=' + content,
                     success: function (result) {
-                        alert(result);
+                        $.ajax({
+                            method: "Post",
+                            url: "/Post/RefreshComment/" + id,
+                            success: function (data) {
+                                var obj = JSON.parse(data);
+                                var count = Object.keys(obj).length;
+                                $("#li-com1-" + elem.attr("data-com-id")).html("<strong>" + obj.User1 + "</strong>" + "  " + obj.Content1);
+                                if (obj.Content2 != null) {
+                                    $("#li-com2-" + elem.attr("data-com-id")).html("<strong>" + obj.User2 + "</strong>" + "  " + obj.Content2);
+                                }
+                               
+                            }
+
+
+                        })
                     }, error: function (result) {
                         alert("Something failed3!");
                     }
