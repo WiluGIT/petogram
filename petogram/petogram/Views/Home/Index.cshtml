@@ -46,7 +46,7 @@
                                         @p.Description
                                         <hr />
                                     </li>
-                                    <li id="cmt-all-@i">
+                                    <li id="cmt-all1-@i">
                                         
                                     </li>
                                     @if (p.Comments.Any())
@@ -215,7 +215,8 @@
                                     $("#li-com2-" + elem.attr("data-com-id")).html("<strong>" + obj.User2 + "</strong>" + "  " + obj.Content2);
                                 }
                                 if (obj.Content1 != null && obj.Content2 != null) {
-                                    $("#cmt-all-" + elem.attr("data-com-id")).html("<a " + "href='/Post/Single'>" + " Zobacz wszystkie komentarze" + "</a>");
+                                    $("#cmt-all1-" + elem.attr("data-com-id")).html("<a " + "href='/Post/Single'>" + " Zobacz wszystkie komentarze" + "</a>");
+                                    $("#cmt-all-" + elem.attr("data-com-id")).html("");
                                 }
                                
                             }
