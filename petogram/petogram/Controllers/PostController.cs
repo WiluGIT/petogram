@@ -130,5 +130,18 @@ namespace petogram.Controllers
             var JSONresult = JsonConvert.SerializeObject(model, Formatting.Indented, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
             return Json(JSONresult);
         }
+
+
+        public ActionResult Single(int id)
+        {
+            var post = db.Posts.Where(m => m.Id == id)
+                .Include(m => m.User).FirstOrDefault();
+
+
+            return View(post);
+
+
+        }
+
     }
 }

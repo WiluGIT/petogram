@@ -300,6 +300,7 @@
     <Content Include="Views\Profile\Edit.cshtml" />
     <Content Include="Views\Profile\ProfilePicture.cshtml" />
     <Content Include="Views\Profile\SearchResult.cshtml" />
+    <Content Include="Views\Post\Single.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

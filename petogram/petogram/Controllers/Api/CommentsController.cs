@@ -25,7 +25,7 @@ namespace petogram.Controllers.Api
         public IHttpActionResult Comment([FromUri]int id, [FromUri]string content)
         {
             var userId = User.Identity.GetUserId();
-            var user = db.Users.Single(m => m.Id == userId);
+            var user = db.Users.SingleOrDefault(m => m.Id == userId);
             var post = db.Posts.SingleOrDefault(m => m.Id == id);
             
 
@@ -33,7 +33,8 @@ namespace petogram.Controllers.Api
             {
                 PostId=id,
                 UserId=userId,
-                Content=content
+                Content=content,
+                User=user,
             };
             post.CommentCount++;
             post.Comments.Add(comment);

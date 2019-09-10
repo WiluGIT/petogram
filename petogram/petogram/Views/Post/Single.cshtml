@@ -1,0 +1,73 @@
+﻿@model petogram.Models.Post
+
+@{
+    ViewBag.Title = "Single";
+}
+
+
+<div class="container">
+    <div class="article-container2">
+        <article class="card2 shadow-sm">
+            <row>
+                <div class="col-12">
+                    <header class="card-header">
+                        <div class="header-icon">
+                            <div class="pic-cnt" style="margin-left:10px; margin-top:5px;">
+                                <span class="pic-spn" style="width:50px; height:50px;">
+                                    <img src="@Url.Content(Model.User.ProfilePicture)" style="height:100%; width:100%" />
+                                </span>
+                            </div>
+                        </div>
+                        <div class="header-name">
+                            <strong>@Model.User.Name</strong>
+                            <br />
+                            <i class="fas fa-map-marker-alt"></i>  @Model.Location
+                        </div>
+                    </header>
+                </div>
+            </row>
+            <row>
+                <div class="col-md-6 btstrp-col">
+                    <div class="card-img2">
+                        <img src="@Url.Content(Model.Img)" style="max-height:100%; max-width:100%" />
+                    </div>               
+                </div>
+                <div class="col-md-6 btstrp-col">
+                    <div class="right-crd">
+                        <ul class="ul-cmt">
+                            <li>
+                                @Model.Description
+                                <hr />
+                            </li>
+                            <li>
+
+                            </li>
+
+                        </ul>
+
+
+                    </div>
+                    <section>
+                        <div class="cmt-inpt">
+                            <form method="post">
+                                <div>
+                                    <div class="text-box">
+                                        <input style="width:100%;" id="textbox-@Model.Id" type="text" class="form-control" placeholder="Add a comment">
+                                        <button id='post-com' data-post2-id="@Model.Id" class="btn btn-cmt pull-right" type="submit"><i class="fa fa-arrow-circle-up"></i></button>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </section>
+                </div>
+            </row>
+
+            
+
+
+        </article>
+    </div>
+</div>
+

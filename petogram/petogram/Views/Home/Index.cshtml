@@ -79,7 +79,7 @@
                                             var com2 = p.Comments.ElementAt(p.Comments.Count - 1);
                                             var com3 = p.Comments.ElementAt(p.Comments.Count - 2);
                                             <li id="cmt-all-@i">
-                                                @Html.ActionLink("Zobacz wszystkie komentarze (" + p.CommentCount + ")", "Single", "Post")
+                                                @Html.ActionLink("Zobacz wszystkie komentarze (" + p.CommentCount + ")", "Single", "Post",new { id=p.Id}, new { @class="btn btn-link"})
                                             </li>
 
                                             <li id="li-com2-@i" class="bot-dsc elem2">
