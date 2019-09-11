@@ -48,11 +48,14 @@
     <div class="row">
         @foreach (var p in Model.Posts)
         {
-            <div class="col-md-4">
+        <div class="col-md-4">
+            <a href="@Url.Action("Single","Post",new { id=p.Id})">
                 <div class="profile-post">
-                    <img src="@Url.Content(p.Img)" style="max-height:100%; max-width:100%"/>
+                    <img src="@Url.Content(p.Img)" style="max-height:100%; max-width:100%" />
                 </div>
-            </div>
+            </a>
+
+        </div>
         }
     </div>
 
