@@ -135,7 +135,9 @@ namespace petogram.Controllers
         public ActionResult Single(int id)
         {
             var post = db.Posts.Where(m => m.Id == id)
-                .Include(m => m.User).FirstOrDefault();
+                .Include(m => m.User)
+                .Include(m=>m.Comments)
+                .FirstOrDefault();
 
 
             return View(post);

@@ -33,27 +33,30 @@
                     </div>               
                 </div>
                 <div class="col-md-6 btstrp-col">
+                    <div style="margin-left: -90px;">
+                        @Model.Description<hr />
+                                        
+                    </div>
                     <div class="right-crd">
-                        <ul class="ul-cmt">
-                            <li>
-                                @Model.Description
-                                <hr />
-                            </li>
-                            <li>
-
-                            </li>
+                        <ul class="ul-cmt2">
+                            @foreach (var p in Model.Comments)
+                            {
+                                <li class="cmt-li">
+                                    <strong>@p.User.Name</strong> @p.Content
+                                </li>
+                            }
 
                         </ul>
 
 
                     </div>
-                    <section>
-                        <div class="cmt-inpt">
+                    <section style="position: absolute; top: 55px;">
+                        <div class="cmt-inpt2">
                             <form method="post">
                                 <div>
-                                    <div class="text-box">
+                                    <div class="text-box" style="width: 670px;">
                                         <input style="width:100%;" id="textbox-@Model.Id" type="text" class="form-control" placeholder="Add a comment">
-                                        <button id='post-com' data-post2-id="@Model.Id" class="btn btn-cmt pull-right" type="submit"><i class="fa fa-arrow-circle-up"></i></button>
+                                        <button id='post-com' data-post2-id="@Model.Id" class="btn btn-cmt2 pull-right" type="submit"><i class="fa fa-arrow-circle-up"></i></button>
                                     </div>
                                 </div>
 

@@ -51,7 +51,7 @@ textarea {
 }
 .card2 {
     height: 530px;
-    background-color: #ecf0f1;
+    background-color: #fff;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: .25rem;
@@ -283,8 +283,15 @@ textarea {
     left:0;
 
 }
-.inline{
-    display:inline-block;
+.cmt-inpt2 {
+    position: relative;
+    bottom: 0;
+    top: 381px;
+    left: -100px;
+}
+
+.inline {
+    display: inline-block;
 }
 .text-box {
     width:612px;
@@ -297,10 +304,26 @@ textarea {
     right: 0;
     top: 0.2px;
 }
+.btn-cmt2 {
+    width: 50px;
+    height: 33px;
+    position: absolute;
+    right: 0;
+    top: 0.2px;
+}
+
 .ul-cmt {
     list-style-type: none;
     margin-top: 10px;
     padding: 0;
+}
+.ul-cmt2 {
+    list-style-type: none;
+    margin-top: 10px;
+    padding: 0;
+    margin-left: -90px;
+    overflow-y: scroll;
+    max-height: 395px;
 }
 .bot-dsc{
     margin-bottom:10px;
@@ -314,6 +337,9 @@ textarea {
 .btstrp-col {
     padding-right: 0;
     padding-left: 0;
+}
+.cmt-li{
+    padding:15px;
 }
 /*Bootstrap overrides*/
 .navbar-inverse .navbar-brand {
