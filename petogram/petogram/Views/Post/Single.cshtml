@@ -74,3 +74,36 @@
     </div>
 </div>
 
+@section scripts{
+    <script>
+        $(document).ready(function(){
+             $("button[id='post-com']").click(function (e) {
+                e.preventDefault();
+                var elem = $(this);
+                var id = elem.attr("data-post2-id");
+                var content = $("#textbox-" + elem.attr("data-post2-id")).val();
+
+                $.ajax({
+                    type: "POST",
+                    url: '/api/comments/' + '?' + 'id=' + id + '&' + 'content=' + content,
+                    success: function (result) {                      
+                            location.reload(true);
+
+                    }, error: function (result) {
+                        alert("Something failed3!");
+                    }
+
+
+                })
+
+            });
+
+        });
+    </script>
+    
+
+
+
+
+
+}
