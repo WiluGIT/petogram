@@ -42,7 +42,7 @@ textarea {
 }
 .card {
     margin-bottom: 60px;
-    height: 930px;
+    max-height: 930px;
     background-color: #ecf0f1;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
@@ -67,7 +67,7 @@ textarea {
 }
 
 .card-img {
-    height: 614px;
+    max-height: 614px;
 
 }
 .card-img2 {
@@ -256,10 +256,12 @@ textarea {
     display: inline-block;
     vertical-align: top;
 }
+.desc2-cnt {
+    margin-left: -90px;
+}
 
-.heart-r{
-    color:red;
-
+.heart-r {
+    color: red;
 }
 .heart-g{
     color:grey;
@@ -296,6 +298,9 @@ textarea {
 .text-box {
     width:612px;
     position:relative;
+}
+.t-b {
+    width: 670px;
 }
 .btn-cmt {
     width: 62px;
@@ -341,6 +346,10 @@ textarea {
 .cmt-li{
     padding:15px;
 }
+.sec-inpt {
+    position: absolute; 
+    top: 55px;
+}
 /*Bootstrap overrides*/
 .navbar-inverse .navbar-brand {
     color: #ff0000ad;
@@ -378,4 +387,72 @@ hr {
     margin-bottom: 10px;
     border: 0;
     border-top: 1px solid #eee;
+}
+
+
+/*Media screens*/
+
+@media screen and (max-width: 1200px) {
+    .article-container2 {
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+        margin-top: 30px;
+        max-width:614px;
+    }
+    .card2 {
+        margin-bottom: 60px;
+        height: 930px;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: .25rem;
+        box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    .card-img2 {
+        height: 614px;
+    }
+    .ul-cmt2 {
+        list-style-type: none;
+        margin-top: 10px;
+        padding: 0;
+        margin-left: unset;
+        overflow-y: scroll;
+        max-height: 177px;
+    }
+    .cmt-inpt2 {
+        position: absolute;
+        top: 222px;
+        left: 0;
+    }
+    .desc2-cnt {
+        margin-left: 5px;
+    }
+    .text-box{
+        width:unset;
+    }
+    .sec-inpt {
+        position: unset;
+        top: unset;
+    }
+    .t-b {
+        width: 614px;
+    }
+}
+@media screen and (max-width: 690px) {
+    .card-img2 {
+        max-height: 614px;
+        height:unset;
+    }
+    .card2 {
+        margin-bottom: 60px;
+        max-height: 930px;
+        height:unset;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: .25rem;
+        box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.25);
+    }
 }
