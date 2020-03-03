@@ -3,10 +3,11 @@ namespace petogram.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddedCommentModel : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
+            DropPrimaryKey("dbo.Likes");
             CreateTable(
                 "dbo.Comments",
                 c => new
@@ -23,6 +24,8 @@ namespace petogram.Migrations
                 .Index(t => t.UserId);
             
             AddColumn("dbo.Posts", "CommentCount", c => c.Int(nullable: false));
+            AlterColumn("dbo.Likes", "Id", c => c.Int(nullable: false, identity: true));
+            AddPrimaryKey("dbo.Likes", "Id");
         }
         
         public override void Down()
@@ -31,8 +34,11 @@ namespace petogram.Migrations
             DropForeignKey("dbo.Comments", "PostId", "dbo.Posts");
             DropIndex("dbo.Comments", new[] { "UserId" });
             DropIndex("dbo.Comments", new[] { "PostId" });
+            DropPrimaryKey("dbo.Likes");
+            AlterColumn("dbo.Likes", "Id", c => c.Int(nullable: false));
             DropColumn("dbo.Posts", "CommentCount");
             DropTable("dbo.Comments");
+            AddPrimaryKey("dbo.Likes", new[] { "Id", "PostId", "UserId" });
         }
     }
 }

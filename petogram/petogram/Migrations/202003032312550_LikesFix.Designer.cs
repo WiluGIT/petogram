@@ -7,13 +7,13 @@ namespace petogram.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class LikeCount : IMigrationMetadata
+    public sealed partial class LikesFix : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(LikeCount));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(LikesFix));
         
         string IMigrationMetadata.Id
         {
-            get { return "201908301421334_LikeCount"; }
+            get { return "202003032312550_LikesFix"; }
         }
         
         string IMigrationMetadata.Source

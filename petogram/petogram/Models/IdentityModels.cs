@@ -58,7 +58,7 @@ namespace petogram.Models
         public DbSet<Like> Likes { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("Petogram", throwIfV1Schema: false)
         {
         }
 

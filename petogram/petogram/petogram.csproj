@@ -204,21 +204,9 @@
     <Compile Include="Migrations\201908271044345_CascadeDelete.Designer.cs">
       <DependentUpon>201908271044345_CascadeDelete.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908282042263_AddLike.cs" />
-    <Compile Include="Migrations\201908282042263_AddLike.Designer.cs">
-      <DependentUpon>201908282042263_AddLike.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908301421334_LikeCount.cs" />
-    <Compile Include="Migrations\201908301421334_LikeCount.Designer.cs">
-      <DependentUpon>201908301421334_LikeCount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908301535501_LikeForeign.cs" />
-    <Compile Include="Migrations\201908301535501_LikeForeign.Designer.cs">
-      <DependentUpon>201908301535501_LikeForeign.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909031526582_AddedCommentModel.cs" />
-    <Compile Include="Migrations\201909031526582_AddedCommentModel.Designer.cs">
-      <DependentUpon>201909031526582_AddedCommentModel.cs</DependentUpon>
+    <Compile Include="Migrations\202003032312550_LikesFix.cs" />
+    <Compile Include="Migrations\202003032312550_LikesFix.Designer.cs">
+      <DependentUpon>202003032312550_LikesFix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -251,6 +239,10 @@
     <Content Include="img\xd.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\petogram - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\petogram - FTP1.pubxml" />
+    <None Include="Properties\PublishProfiles\petogram - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\petogram - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -331,17 +323,8 @@
     <EmbeddedResource Include="Migrations\201908271044345_CascadeDelete.resx">
       <DependentUpon>201908271044345_CascadeDelete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908282042263_AddLike.resx">
-      <DependentUpon>201908282042263_AddLike.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908301421334_LikeCount.resx">
-      <DependentUpon>201908301421334_LikeCount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908301535501_LikeForeign.resx">
-      <DependentUpon>201908301535501_LikeForeign.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909031526582_AddedCommentModel.resx">
-      <DependentUpon>201909031526582_AddedCommentModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003032312550_LikesFix.resx">
+      <DependentUpon>202003032312550_LikesFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
